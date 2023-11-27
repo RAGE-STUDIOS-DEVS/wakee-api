@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import userRoutes from './routes/UserRoutes'
+import mongoose from 'mongoose';
 
 dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI || '';
@@ -26,3 +27,17 @@ app.listen(port, () => {
 	console.log(process.env.NODE_ENV);
 	console.log(`Server running on ${port}.`);
 });
+
+const start = async () => {
+	try {
+		await mongoose.connect(
+			MONGODB_URI
+		);
+		app.listen(3000, () => console.log('Server started on port 3000'));
+	} catch (error) {
+		console.log(error);
+		process.exit();
+	}
+}
+
+start();
