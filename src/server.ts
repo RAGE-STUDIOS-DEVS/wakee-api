@@ -29,7 +29,7 @@ const start = async () => {
 		await mongoose.connect(
 			MONGODB_URI
 		);
-		app.listen(port, () => console.log('Server started on port' + port));
+		app.listen(port, () => console.log('Server started on port ' + port));
 	} catch (error) {
 		console.log(error);
 		process.exit();
