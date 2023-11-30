@@ -23,10 +23,6 @@ app.get('/', (req, res, next) => {
 		'message': 'Running Node with Express and Typescript'
 	});
 });
-app.listen(port, () => {
-	console.log(process.env.NODE_ENV);
-	console.log(`Server running on ${port}.`);
-});
 
 const start = async () => {
 	try {
